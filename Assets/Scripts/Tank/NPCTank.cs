@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class NPCTank : MonoBehaviour
 {
 
-    //hi
     public LayerMask m_TankMask;
     public float m_SphereRadius = 50f;
     public float m_Speed = 6f;
@@ -14,7 +13,7 @@ public class NPCTank : MonoBehaviour
 
     NavMeshAgent nav;
     NPCTankShooting shoot;
-    private float shootDistance = 30;
+    private float shootDistance = 20;
     private GameObject m_NearTank;
     private Vector3 m_CompareDistance;
     private Rigidbody m_Rigidbody;
@@ -50,6 +49,7 @@ public class NPCTank : MonoBehaviour
     void FixedUpdate()
     {
         GameObject closestTank = FindClosestTank();
+        nav.stoppingDistance = shootDistance;
 
         if(nav.remainingDistance <= shootDistance)
         {
@@ -59,18 +59,22 @@ public class NPCTank : MonoBehaviour
 
             if(Quaternion.Angle(rotacion,miDireccion) < 2.0)
             {
-                shoot.m_Fire = true;
-                shoot.m_Distancia = direccion.magnitude;
+                shoot.dispara = true;
+                shoot.distance = direccion.magnitude;
             }
-
+            else
+            {
+                shoot.dispara = false;
+            }
             nav.SetDestination(closestTank.transform.position);
-            transform.rotation = rotacion;
+            m_Rigidbody.MoveRotation(rotacion);
             
         }
-
         
 
-        
+
+
+
         //transform.position = Vector3.MoveTowards(transform.position, closestTank.transform.position, nav.speed * Time.fixedDeltaTime);
     }
 }

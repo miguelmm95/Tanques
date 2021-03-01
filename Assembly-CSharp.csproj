@@ -53,8 +53,12 @@
     <UnityVersion>2020.2.3f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Scripts\Tank\TankMovement.cs" />
     <Compile Include="Assets\Scripts\Tank\TankHealth.cs" />
+    <Compile Include="Assets\Scripts\Tank\NPCTankShooting.cs" />
     <Compile Include="Assets\Scripts\Shell\ShellExplosion.cs" />
     <Compile Include="Assets\_Completed-Assets\Scripts\Shell\ShellExplosion.cs" />
     <Compile Include="Assets\Scripts\UI\UIDirectionControl.cs" />
@@ -71,7 +75,6 @@
     <Compile Include="Assets\Scripts\Tank\NPCTank.cs" />
     <Compile Include="Assets\Scripts\Tank\TankShooting.cs" />
     <Compile Include="Assets\_Completed-Assets\Scripts\Tank\TankMovement.cs" />
-    <Compile Include="Assets\Scripts\Tank\NPCTankShooting.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Fonts\Bowlby_One\FontLicense.txt" />
